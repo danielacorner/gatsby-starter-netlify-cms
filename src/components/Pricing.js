@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Pricing = ({ data }) => (
   <div className="columns">
@@ -21,10 +21,22 @@ const Pricing = ({ data }) => (
             ))}
           </ul>
         </section>
+        <a
+          className="snipcart-add-item"
+          data-item-id={price.id}
+          data-item-price={price.price}
+          data-item-image={price.image}
+          data-item-name={price.title}
+          data-item-description={price.description}
+          data-item-url={'http://hl-storefront.netlify.com' + price.path}
+          href={`http://hl-storefront.netlify.com${price.path}`}
+        >
+          Buy
+        </a>
       </div>
     ))}
   </div>
-)
+);
 
 Pricing.propTypes = {
   data: PropTypes.arrayOf(
@@ -32,9 +44,9 @@ Pricing.propTypes = {
       plan: PropTypes.string,
       price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       description: PropTypes.string,
-      items: PropTypes.array,
+      items: PropTypes.array
     })
-  ),
-}
+  )
+};
 
-export default Pricing
+export default Pricing;
